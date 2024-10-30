@@ -18,7 +18,7 @@ public class PasswordEncoder {
     }
 
     public void validEqualPassword(String rawPassword, String encodedPassword) {
-        if(!matches(rawPassword, encodedPassword)){
+        if (!matches(rawPassword, encodedPassword)) {
             throw new AuthException("잘못된 비밀번호입니다.");
         }
     }

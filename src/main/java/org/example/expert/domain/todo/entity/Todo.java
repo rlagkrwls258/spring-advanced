@@ -17,7 +17,8 @@ import java.util.List;
 @Table(name = "todos")
 public class Todo extends Timestamped {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String contents;
@@ -28,10 +29,10 @@ public class Todo extends Timestamped {
     private User user;
 
     @OneToMany(mappedBy = "todo", cascade = CascadeType.REMOVE)
-    private List<Comment> comments = new ArrayList<>();
+    private final List<Comment> comments = new ArrayList<>();
 
     @OneToMany(mappedBy = "todo", cascade = CascadeType.PERSIST)
-    private List<Manager> managers = new ArrayList<>();
+    private final List<Manager> managers = new ArrayList<>();
 
     public Todo(String title, String contents, String weather, User user) {
         this.title = title;
